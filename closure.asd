@@ -56,7 +56,7 @@
 
 (defpackage :glisp (:use))
 (asdf:defsystem glisp
-    :pathname (merge-pathnames "src/glisp/"
+    :pathname #.(merge-pathnames "src/glisp/"
 			       (make-pathname :name nil :type nil
 					      :defaults *load-truename*))
     :default-component-class closure-source-file
