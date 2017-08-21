@@ -322,12 +322,12 @@
     (values
      (cl-byte-stream->gstream
       (if proxyp
-	  (trivial-sockets:open-stream *http-proxy-host*
-				       *http-proxy-port*
-				       :element-type '(unsigned-byte 8))
-	  (trivial-sockets:open-stream host
-				       port
-				       :element-type '(unsigned-byte 8))))
+          (usocket:socket-stream
+           (usocket:socket-connect *http-proxy-host*
+				   *http-proxy-port*
+				       :element-type '(unsigned-byte 8)))
+	  (usocket:socket-stream
+           (usocket:socket-connect host port :element-type '(unsigned-byte 8)))))
      proxyp)))
 
 (defun http-make-request (method url header post-data)

@@ -88,7 +88,7 @@
     :depends-on (:mcclim
                  :glisp
 		 :bordeaux-threads
-		 :trivial-sockets
+		 :usocket
 		 :zip
 		 :flexi-streams
                  :skippy)
